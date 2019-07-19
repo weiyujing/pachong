@@ -57,6 +57,9 @@ def main(url):
         # 获取图片的连接
         try:
             img_src = li.find('img')['data-src']
+            #img_src = li.find('a').string 获取a中的内容如<a>内容</a>
+            #去掉字符串中的回车空格等
+            #img_src = img_src.replace('\r', '').replace('\n', '').replace('\t', '').replace('(','').replace(')','').replace(' ','')
             with open('2017/'+str(i) + '.png', 'wb+') as f:
                 try:
                     f.write(requests.get(img_src).content)
